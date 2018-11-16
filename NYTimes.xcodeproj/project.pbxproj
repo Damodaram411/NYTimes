@@ -19,7 +19,6 @@
 		C698B4C3219DC97E009E1814 /* ArticalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C698B4C1219DC97E009E1814 /* ArticalTableViewCell.xib */; };
 		C698B4C5219DEC5D009E1814 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C698B4C4219DEC5C009E1814 /* ViewModel.swift */; };
 		C6E1481A219E7EB800218998 /* Utilitys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E14819219E7EB800218998 /* Utilitys.swift */; };
-		C6E1481C219EC4EF00218998 /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E1481B219EC4EF00218998 /* icomoon.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +57,6 @@
 		C698B4C1219DC97E009E1814 /* ArticalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticalTableViewCell.xib; sourceTree = "<group>"; };
 		C698B4C4219DEC5C009E1814 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		C6E14819219E7EB800218998 /* Utilitys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilitys.swift; sourceTree = "<group>"; };
-		C6E1481B219EC4EF00218998 /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,13 +107,9 @@
 		C698B48E219DC3C7009E1814 /* NYTimes */ = {
 			isa = PBXGroup;
 			children = (
-				C6E1481B219EC4EF00218998 /* icomoon.ttf */,
 				C698B48F219DC3C7009E1814 /* AppDelegate.swift */,
-				C698B491219DC3C7009E1814 /* ViewController.swift */,
 				C6E14819219E7EB800218998 /* Utilitys.swift */,
-				C698B4C4219DEC5C009E1814 /* ViewModel.swift */,
-				C698B4C0219DC97E009E1814 /* ArticalTableViewCell.swift */,
-				C698B4C1219DC97E009E1814 /* ArticalTableViewCell.xib */,
+				C6E14822219F041500218998 /* HomeView */,
 				C698B4BD219DC85A009E1814 /* DetailsView */,
 				C698B493219DC3C7009E1814 /* Main.storyboard */,
 				C698B496219DC3CB009E1814 /* Assets.xcassets */,
@@ -149,6 +143,25 @@
 				C698B4BE219DC8BF009E1814 /* DetailsViewController.swift */,
 			);
 			path = DetailsView;
+			sourceTree = "<group>";
+		};
+		C6E14822219F041500218998 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				C698B4C4219DEC5C009E1814 /* ViewModel.swift */,
+				C698B491219DC3C7009E1814 /* ViewController.swift */,
+				C6E14823219F046400218998 /* TableViewCell */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		C6E14823219F046400218998 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C698B4C0219DC97E009E1814 /* ArticalTableViewCell.swift */,
+				C698B4C1219DC97E009E1814 /* ArticalTableViewCell.xib */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +268,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6E1481C219EC4EF00218998 /* icomoon.ttf in Resources */,
 				C698B4C3219DC97E009E1814 /* ArticalTableViewCell.xib in Resources */,
 				C698B49A219DC3CB009E1814 /* LaunchScreen.storyboard in Resources */,
 				C698B497219DC3CB009E1814 /* Assets.xcassets in Resources */,
