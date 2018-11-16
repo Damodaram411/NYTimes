@@ -6,7 +6,6 @@ How to Run App
 
 
 Requirements
-
 iOS 11.0+ 
 Xcode 9.0+
 Swift 4.2
