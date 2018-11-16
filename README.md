@@ -2,7 +2,7 @@
 
 How to Run App
 
-.open Nytimes Target and Slelect any Target and Run the App By clicking Comand+R
+.open NYTimes.xcodeproj file and slelect any Target and Run the App By clicking Comand+R
 
 .To Test Unit Tests Comand+U
 
