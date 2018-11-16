@@ -1,24 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mmg-cD-n1a">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="Bfr-Xx-Fef">
+            <objects>
+                <navigationController id="mmg-cD-n1a" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hZH-Te-e6y">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6Hc-Nj-Gw0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UjI-FS-au2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1260" y="-60"/>
+        </scene>
+        <!--NY Times Most Popular-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NYTimes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZNa-5t-Vsb">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="hcn-wQ-RyD"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dzh-hh-84Q"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZNa-5t-Vsb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="31I-Li-6bo"/>
+                            <constraint firstItem="ZNa-5t-Vsb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Sza-fG-6vV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZNa-5t-Vsb" secondAttribute="bottom" id="WbT-Az-a2x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZNa-5t-Vsb" secondAttribute="trailing" id="Z4V-8D-MVJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="NY Times Most Popular" id="eoG-VD-zLh">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="nOB-I2-PLU">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="menuButtonAction:" destination="BYZ-38-t0r" id="NVw-iZ-tew"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="menu-vertical-filled" id="JFQ-sM-XU3">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="moreMenuButtonAction:" destination="BYZ-38-t0r" id="Qff-6i-e8t"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="search" id="ZJE-kb-yPt">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="searchButtonAction:" destination="BYZ-38-t0r" id="Kve-Yr-6Pg"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="articalListTableView" destination="ZNa-5t-Vsb" id="8LO-h6-RaN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-566" y="-187"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="xHO-ug-0oP">
+            <objects>
+                <viewController storyboardIdentifier="DetailsViewController" id="dTj-Sj-2H1" customClass="DetailsViewController" customModule="NYTimes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sjn-QM-d49">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yqC-ou-82d">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mYi-eB-BYn">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8Ik-oE-utp" firstAttribute="trailing" secondItem="yqC-ou-82d" secondAttribute="trailing" id="AjH-bI-kkb"/>
+                            <constraint firstItem="mYi-eB-BYn" firstAttribute="centerX" secondItem="sjn-QM-d49" secondAttribute="centerX" id="BDw-X1-wVl"/>
+                            <constraint firstItem="yqC-ou-82d" firstAttribute="leading" secondItem="8Ik-oE-utp" secondAttribute="leading" id="Mrn-4G-QMO"/>
+                            <constraint firstItem="8Ik-oE-utp" firstAttribute="bottom" secondItem="yqC-ou-82d" secondAttribute="bottom" id="Vmq-XR-jeP"/>
+                            <constraint firstItem="yqC-ou-82d" firstAttribute="top" secondItem="8Ik-oE-utp" secondAttribute="top" id="nh1-D4-ivc"/>
+                            <constraint firstItem="mYi-eB-BYn" firstAttribute="centerY" secondItem="sjn-QM-d49" secondAttribute="centerY" id="u2q-eu-eqD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Ik-oE-utp"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="mYi-eB-BYn" id="1UP-Oc-8HF"/>
+                        <outlet property="descriptionView" destination="yqC-ou-82d" id="Gru-Xs-eHC"/>
+                        <outlet property="view" destination="sjn-QM-d49" id="jTs-bh-2Gz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vGA-bP-yz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121" y="-193"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="37.5" height="37.5"/>
+        <image name="menu-vertical-filled" width="37.5" height="37.5"/>
+    </resources>
 </document>
