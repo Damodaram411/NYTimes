@@ -18,8 +18,11 @@ DetailsViewController.swift File Contains code regrding Displaying artical descr
 
 The whole app UI is Developed by using Storyboards and Autolayout Concepts.
  
+Code coverage report
 
+Please find Below Image
 
+![image](https://drive.google.com/uc?export=view&id=0B4Z3myVZ763qcXNDTUNVRjQ3Z0k1VWRqVV9GR2NpU05NbjE0)
 
 Requirements
 
