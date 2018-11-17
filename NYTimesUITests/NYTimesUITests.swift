@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import NYTimes
 
 class NYTimesUITests: XCTestCase {
 
@@ -27,8 +28,22 @@ class NYTimesUITests: XCTestCase {
     }
 
     func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
+        let nyTimesMostPopularNavigationBar = app.navigationBars["NY Times Most Popular"]
+        nyTimesMostPopularNavigationBar.children(matching: .button).element(boundBy: 0).tap()
+        
+        let okButton = app.alerts["Message"].buttons["Ok"]
+        okButton.tap()
+        nyTimesMostPopularNavigationBar.buttons["Search"].tap()
+        okButton.tap()
+        nyTimesMostPopularNavigationBar.buttons["Item"].tap()
+        okButton.tap()
+        let tablesQuery = app.tables
+        let cell = tablesQuery.cells
+        //        let cell = cellQuery.children(matching: .staticText)
+        let cellElement = cell.element(boundBy: 1)
+        cellElement.tap()
+        
     }
 
 }

@@ -11,9 +11,10 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var articalListTableView: UITableView!
-    let reuseIdentifier = "ArticalList"
-    let api_key = "bb74a93967934fafaf7915b959dc2eb7"
-    var artcialListArray : [Result]?
+   let apiUrl = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/all-sections/7.json?api-key=bb74a93967934fafaf7915b959dc2eb7"
+   private let reuseIdentifier = "ArticalList"
+   private let api_key = "bb74a93967934fafaf7915b959dc2eb7"
+   private var artcialListArray : [Result]?
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         
@@ -31,16 +32,19 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    func basicIntilaizations()
+   private func basicIntilaizations()
     {
         articalListTableView.register(UINib(nibName: "ArticalTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
         articalListTableView.estimatedRowHeight = 120
         articalListTableView.rowHeight = UITableView.automaticDimension
         articalListTableView.addSubview(self.refreshControl)
         articalListTableView.alwaysBounceVertical = true
+//        articalListTableView.separatorStyle = .none
+        articalListTableView.tableFooterView = UIView()
+
         updatenavigationBarAppreance()
     }
-    func updatenavigationBarAppreance()
+   private func updatenavigationBarAppreance()
     {
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
@@ -51,7 +55,7 @@ class ViewController: UIViewController {
         getArticalsfromServer(true)
         
     }
-    func getArticalsfromServer(_ isrefresh : Bool)
+   private func getArticalsfromServer(_ isrefresh : Bool)
     {
 
         let urlString = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/all-sections/7.json?api-key=\(api_key)"
@@ -83,7 +87,7 @@ class ViewController: UIViewController {
             }.resume()
     }
     
-    func parseJsonData(data : Data)
+  private  func parseJsonData(data : Data)
     {
         //Implement JSON decoding and parsing
         do {
@@ -93,8 +97,11 @@ class ViewController: UIViewController {
             //Get back to the main queue
             DispatchQueue.main.async {
                 //print(articlesData)
+                self.artcialListArray?.removeAll()
                 self.artcialListArray = articlesData.results
                 self.articalListTableView.reloadData()
+                self.articalListTableView.separatorStyle = .singleLine
+
             }
             
         } catch let jsonError {
@@ -106,7 +113,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func showAlertWithMessage(_ message : String)
+   private func showAlertWithMessage(_ message : String)
     {
         let alertView = UIAlertController(title: "Message", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
@@ -162,10 +169,11 @@ extension ViewController : UITableViewDelegate
         
         guard let articalData = artcialListArray?[indexPath.row]  else {
             print("Unable To Load")
+            self.showAlertWithMessage("Unable to load data please try later")
             return
         }
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let detailsViewController = storyBoard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        let detailsViewController = storyBoard.instantiateViewController(withIdentifier: "detailsView") as! DetailsViewController
         detailsViewController.articalTitle = articalData.title
         detailsViewController.descriptionurl = articalData.url
         self.navigationController?.pushViewController(detailsViewController, animated: true)

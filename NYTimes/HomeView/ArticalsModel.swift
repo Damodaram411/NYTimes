@@ -1,5 +1,5 @@
 //
-//  ViewModel.swift
+//  ArticalsModel.swift
 //  NYTimes
 //
 //  Created by Damu on 15/11/18.

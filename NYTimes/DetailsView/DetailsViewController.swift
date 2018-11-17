@@ -21,11 +21,10 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         basicIntilaizations()
-
         // Do any additional setup after loading the view.
     }
     
-    func basicIntilaizations()
+   private func basicIntilaizations()
     {
         self.title = articalTitle
         descriptionView.navigationDelegate = self
@@ -35,23 +34,24 @@ class DetailsViewController: UIViewController {
             activityIndicator.startAnimating()
             descriptionView.load(request)
         }
-}
-    
-
+     }
 }
 
 extension DetailsViewController : WKNavigationDelegate
 {
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        
+    }
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         print("fail to load")
         activityIndicator.stopAnimating()
-        
+
     }
     
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("Strat to load")
+        print("Start to load")
         
     }
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
