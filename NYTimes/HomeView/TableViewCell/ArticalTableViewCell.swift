@@ -25,12 +25,11 @@ class ArticalTableViewCell: UITableViewCell {
             self.backgroundColor = UIColor.groupTableViewBackground
             articaltitleLabel.text = cellData.title
             autherNameLabel.text = cellData.byline
-            if(cellData.byline.isEmpty)
+            if((cellData.byline ?? "").isEmpty)
             {
                  autherNameLabel.text = "N/A"
             }
             setimageforDateLabel(cellData.publishedDate)
-//            articalpublishedDateLabel.text = cellData.publishedDate
             let metadtainfo = cellData.media[0].mediaMetadata.filter { (object) -> Bool in
                 return object.format.rawValue == "Standard Thumbnail"
             }
